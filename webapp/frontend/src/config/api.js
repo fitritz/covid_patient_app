@@ -1,4 +1,4 @@
-const DEFAULT_PRODUCTION_API_URL = 'https://covid-patient-api.onrender.com';
+const DEFAULT_PRODUCTION_API_URL = 'https://covid-patient-api.vercel.app';
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
