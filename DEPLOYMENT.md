@@ -1,43 +1,28 @@
-# PulseAI Deployment Notes (Vercel)
+# PulseAI Deployment Notes (Single Render Service)
 
-Deploy this repo as two Vercel projects:
-- `covid-patient-api` - Flask backend from `webapp/backend`
-- `covid-patient-app` - React frontend from `webapp/frontend`
+Deploy this repo as one Render web service. The service builds the React frontend, then Flask serves both the frontend and the API from the same domain.
 
-## Backend (Vercel)
-Backend lives in: `webapp/backend`
+## Render Web Service
+Create a new Web Service from the GitHub repo.
 
 ### Env vars required
 - `MONGO_URI` = your MongoDB Atlas connection string (must include the database name at the end)
   - Example: `mongodb+srv://<user>:<pass>@<cluster>/<db>?retryWrites=true&w=majority`
-- `FRONTEND_URL` = your deployed frontend base URL for CORS allowlist
 
-### Vercel project settings
-- Root Directory: `webapp/backend`
-- Framework Preset: Other
-- Build Command: leave empty
-- Output Directory: leave empty
-- Install Command: `pip install -r requirements.txt`
+### Render settings
+- Name: `covid-patient-app`
+- Language: `Python 3`
+- Branch: `main`
+- Root Directory: leave empty
+- Build Command: `pip install -r webapp/backend/requirements.txt && cd webapp/frontend && npm ci && npm run build`
+- Start Command: `cd webapp/backend && gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120`
+- Instance Type: Free
 
-### Health check
+### Verify
 After deployment, verify:
-- `GET /health` (e.g. `https://covid-patient-api.vercel.app/health`)
-
-## Frontend (Vercel)
-Frontend lives in: `webapp/frontend`
-
-The React app calls the backend using:
-- `REACT_APP_API_URL` (build-time) if provided
-- otherwise it falls back to `https://covid-patient-api.vercel.app`
-
-### Vercel project settings
-- Root Directory: `webapp/frontend`
-- Framework Preset: Create React App
-- Build Command: `npm run build`
-- Output Directory: `build`
-
-### Recommended frontend env var
-- `REACT_APP_API_URL` = your Vercel backend URL
+- Frontend: `https://<your-render-service>.onrender.com`
+- Health: `https://<your-render-service>.onrender.com/health`
+- API info: `https://<your-render-service>.onrender.com/api`
 
 ## Quick local test
 1) Set `MONGO_URI` in your environment (or create `webapp/backend/.env` for local development)

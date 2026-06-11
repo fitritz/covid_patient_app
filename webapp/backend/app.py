@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from bson.objectid import ObjectId
@@ -19,12 +19,13 @@ load_dotenv()
 # Ensure log file is created in the same directory as this script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 log_file_path = os.path.join(script_dir, 'predict.log')
+frontend_build_dir = os.path.abspath(os.path.join(script_dir, '..', 'frontend', 'build'))
 
 logging.basicConfig(level=logging.DEBUG, 
                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s',
                     handlers=[logging.FileHandler(log_file_path), logging.StreamHandler()])
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=frontend_build_dir, static_url_path='')
 
 # --- CORS Configuration for Production ---
 # Allow requests from Vercel frontend
@@ -603,9 +604,9 @@ def predict_for_reading(reading_id):
     return jsonify(updated_reading)
 
 
-# Root endpoint
-@app.route('/', methods=['GET'])
-def root():
+# API info endpoint
+@app.route('/api', methods=['GET'])
+def api_info():
     return jsonify({
         "service": "PulseAI Backend API",
         "status": "running",
@@ -622,6 +623,28 @@ def root():
 @app.route('/health', methods=['GET'])
 def health_check():
     return jsonify({"status": "healthy", "service": "PulseAI Backend"})
+
+
+@app.route('/', defaults={'path': ''}, methods=['GET'])
+@app.route('/<path:path>', methods=['GET'])
+def serve_frontend(path):
+    if path.startswith('api/'):
+        return jsonify({"error": "Not found"}), 404
+
+    if path and os.path.exists(os.path.join(frontend_build_dir, path)):
+        return send_from_directory(frontend_build_dir, path)
+
+    index_path = os.path.join(frontend_build_dir, 'index.html')
+    if os.path.exists(index_path):
+        return send_from_directory(frontend_build_dir, 'index.html')
+
+    return jsonify({
+        "service": "PulseAI Backend API",
+        "status": "running",
+        "frontend": "build not found",
+        "health": "/health",
+        "api": "/api"
+    })
 
 
 if __name__ == '__main__':
