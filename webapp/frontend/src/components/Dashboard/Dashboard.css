@@ -1,0 +1,125 @@
+.dashboard {
+  padding: 0;
+  width: 100%;
+  /* Removed fixed height and overflow to allow main window scrolling */
+  position: relative;
+}
+
+/* Enable global scroll snap on the document root */
+/* Note: This should ideally be in index.css, but putting it here for component-specific context if needed, 
+   though it won't affect <html> unless targeted. We will handle html in index.css */
+
+.dashboard-hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-xl);
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.hero-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: var(--space-sm);
+  filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  letter-spacing: 1px;
+}
+
+.dashboard-directory-section {
+  min-height: 100vh;
+  padding: var(--space-xl);
+  scroll-snap-align: start;
+  padding-top: 80px; 
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  opacity: 0.7;
+}
+
+.arrow-down {
+  font-size: 24px;
+  margin-top: 8px;
+  color: var(--color-primary);
+}
+
+.dashboard-actions {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 767px) {
+  .dashboard-hero-section {
+    height: auto;
+    min-height: 100vh;
+    padding: var(--space-lg) var(--space-md);
+    padding-top: calc(var(--space-lg) + 60px); /* Account for navbar */
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+    padding: 0 var(--space-sm);
+  }
+
+  .dashboard-directory-section {
+    min-height: auto;
+    padding: var(--space-md);
+    padding-top: var(--space-lg);
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+    font-size: var(--font-size-xs);
+  }
+
+  .arrow-down {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dashboard-hero-section {
+    padding: var(--space-lg);
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .dashboard-directory-section {
+    padding: var(--space-lg);
+  }
+}
+

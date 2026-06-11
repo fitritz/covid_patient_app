@@ -1,0 +1,122 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# System Files
+.DS_Store
+Thumbs.db
+*.log
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+catboost_info/
+predict.log
+webapp/backend/predict.log
+
+# Environment
+.env
+*.env.local
+webapp/backend/.env
+webapp/frontend/.env.local
+
+# Progress/Phase Documentation (keep locally)
+PHASE1_COMPLETE.md
+PHASE1_TASK_SUMMARY.md
+PROGRESS_SUMMARY.md
+PROGRESS_SUMMARY_FINAL.md
+PROJECT_ROADMAP.md
+SETUP_COMPLETE.md
+MODEL_IMPROVEMENT_PLAN.md
+SAFETY_CHECK_IMPLEMENTATION.md
+DATA_GENERATION_GUIDE.md
+UI_DESIGN_SPEC.md
+FRONTEND_PRD.md
+
+# Temporary/Development Files
+tmp_*.py
+test_samples.py
+model_improvement_analysis.py
+restart_servers.py
+
+# Phase-specific requirements
+requirements_phase1.txt
+
+# Reports (keep locally, generated during training)
+reports/TASK_*.md
+reports/PHASE1_FINAL_REPORT.md
+reports/EXECUTIVE_SUMMARY.md
+
+# Development/Intermediate datasets
+iot_dataset*.csv
+dataset_augmented.csv
+dataset_engineered.csv
+
+# Old/Intermediate model files (keep only final models)
+models/ensemble_best_model.pkl
+models/corrected_*.pkl
+models/optimized_*.pkl
+models/quick_enhanced_*.pkl
+models/enhanced_*.pkl
+models/deep_learning_*.pkl
+models/ensemble_*.pkl
+models/*.keras
+models/Gaussian_Naive_Bayes.pkl
+models/Logistic_Regression.pkl
+models/Decision_Tree.pkl
+models/Random_Forest.pkl
+models/SVM.pkl
+models/Gradient_Boosting.pkl
+models/Ensemble_Voting.pkl
+
+# Intermediate metadata
+models/corrected_metadata.json
+models/optimized_metadata.json
+models/quick_enhanced_metadata.json
+models/deep_learning_metadata.json
+models/ensemble_metadata.json
+
+# Generated images (keep locally for analysis)
+results_Phase-1.png
+reports/*.png
+
+# IoT Notebook (keeping final_colab.ipynb only)
+IotFile.ipynb
+
+# Node modules (frontend)
+webapp/frontend/node_modules/
+webapp/frontend/build/
+webapp/frontend/.env
+
+# npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

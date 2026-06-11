@@ -1,0 +1,42 @@
+.background-animation-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  background-color: #0a0b10; /* Slightly lighter deep blue-black for depth */
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  /* Increased opacity for better visibility */
+  opacity: 0.6; 
+}
+
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle 800px at var(--mouse-x) var(--mouse-y), 
+    rgba(0, 242, 255, 0.15), 
+    rgba(112, 0, 255, 0.1), 
+    transparent 50%
+  );
+  pointer-events: none;
+  mix-blend-mode: screen;
+}

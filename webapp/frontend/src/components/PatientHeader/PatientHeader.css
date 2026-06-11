@@ -1,0 +1,293 @@
+.patient-header-card {
+  background-color: var(--color-surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: var(--border-glass);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-lg);
+}
+
+.patient-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  font-weight: bold;
+  margin-right: var(--space-xl);
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.patient-avatar:hover {
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.6);
+}
+
+.patient-avatar.has-photo {
+  background: transparent;
+}
+
+.patient-avatar .avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patient-avatar .avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.patient-avatar:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.patient-avatar .overlay-icon {
+  font-size: 24px;
+}
+
+.patient-avatar.uploading {
+  pointer-events: none;
+}
+
+.patient-avatar .upload-spinner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.patient-info h1 {
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+.patient-info p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* Edit Button */
+.edit-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  color: var(--color-primary);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: all 0.3s ease;
+  margin-left: var(--space-md);
+}
+
+.edit-btn:hover {
+  background: rgba(0, 242, 255, 0.1);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+}
+
+/* Name Row */
+.name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.name-row h1 {
+  margin: 0;
+}
+
+/* Edit Form */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex: 1;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.edit-field label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edit-field input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  transition: all 0.3s ease;
+}
+
+.edit-field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+.edit-field input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Edit Actions */
+.edit-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.btn-save,
+.btn-cancel {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-save {
+  background: var(--gradient-primary);
+  border: none;
+  color: #000;
+}
+
+.btn-save:hover:not(:disabled) {
+  box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-text-secondary);
+}
+
+.btn-cancel:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-primary);
+}
+
+.btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 767px) {
+  .patient-header-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  .patient-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+    margin-right: 0;
+    margin-bottom: var(--space-md);
+  }
+
+  .patient-info {
+    width: 100%;
+  }
+
+  .patient-info h1 {
+    font-size: var(--font-size-lg);
+  }
+
+  .patient-info p {
+    justify-content: center;
+    font-size: var(--font-size-xs);
+  }
+
+  .name-row {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .edit-btn {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .edit-form {
+    width: 100%;
+  }
+
+  .edit-field input {
+    width: 100%;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .patient-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 36px;
+    margin-right: var(--space-lg);
+  }
+}

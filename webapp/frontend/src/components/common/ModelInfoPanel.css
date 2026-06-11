@@ -1,0 +1,188 @@
+/* ===================================
+   ModelInfoPanel Component Styles
+   =================================== */
+
+.model-info-panel {
+  background-color: var(--color-surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+}
+
+/* Header/Toggle Button */
+.model-info-header {
+  width: 100%;
+  background-color: rgba(0, 242, 255, 0.05);
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+}
+
+.model-info-header:hover {
+  background-color: rgba(0, 242, 255, 0.1);
+}
+
+.model-info-header:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.model-info-header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.model-info-icon {
+  font-size: 24px;
+  line-height: 1;
+  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.5));
+}
+
+.model-info-title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-align: left;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.model-info-toggle {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  transition: transform var(--transition-base);
+}
+
+.model-info-toggle.expanded {
+  transform: rotate(180deg);
+}
+
+/* Content Section */
+.model-info-content {
+  padding: var(--space-lg);
+  padding-top: var(--space-md);
+  animation: expandDown var(--transition-base) ease-out;
+  border-top: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Grid Layout */
+.model-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.model-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.model-info-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.model-info-value {
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.model-info-highlight {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.3);
+}
+
+.model-info-note {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: var(--space-md);
+  border-radius: var(--border-radius-sm);
+  border-left: 3px solid var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.model-info-note p {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+.model-info-note strong {
+  color: var(--color-primary);
+}
+
+.model-info-link {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+
+.model-info-link:hover {
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .model-info-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .model-info-icon {
+    font-size: 20px;
+  }
+  
+  .model-info-title {
+    font-size: var(--font-size-base);
+  }
+  
+  .model-info-content {
+    padding: var(--space-md);
+    padding-top: 0;
+  }
+  
+  .model-info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .model-info-note {
+    padding: var(--space-sm);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .model-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

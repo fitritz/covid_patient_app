@@ -1,0 +1,66 @@
+{
+    "model": "GB_Base_3_Features",
+    "accuracy": 0.425,
+    "balanced_accuracy": 0.39301923291827406,
+    "f1_macro": 0.3897159564765198,
+    "classification_report": {
+        "0": {
+            "precision": 0.45714285714285713,
+            "recall": 0.5063291139240507,
+            "f1-score": 0.4804804804804805,
+            "support": 158.0
+        },
+        "1": {
+            "precision": 0.4147727272727273,
+            "recall": 0.4899328859060403,
+            "f1-score": 0.4492307692307692,
+            "support": 149.0
+        },
+        "2": {
+            "precision": 0.3469387755102041,
+            "recall": 0.1827956989247312,
+            "f1-score": 0.23943661971830985,
+            "support": 93.0
+        },
+        "accuracy": 0.425,
+        "macro avg": {
+            "precision": 0.40628478664192946,
+            "recall": 0.39301923291827406,
+            "f1-score": 0.3897159564765198,
+            "support": 400.0
+        },
+        "weighted avg": {
+            "precision": 0.41573753478664194,
+            "recall": 0.425,
+            "f1-score": 0.41279726541275835,
+            "support": 400.0
+        }
+    },
+    "confusion_matrix": [
+        [
+            80,
+            63,
+            15
+        ],
+        [
+            59,
+            73,
+            17
+        ],
+        [
+            36,
+            40,
+            17
+        ]
+    ],
+    "feature_importances": [
+        0.3481089909880405,
+        0.3287892427921563,
+        0.3231017662198031
+    ],
+    "feature_names": [
+        "Temperature Data",
+        "ECG Data",
+        "Pressure Data"
+    ]
+}

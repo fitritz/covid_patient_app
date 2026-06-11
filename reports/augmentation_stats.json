@@ -1,0 +1,15 @@
+{
+    "original_samples": 150,
+    "augmented_samples": 663,
+    "increase_factor": 4.42,
+    "methods_used": [
+        "Original",
+        "SMOTE",
+        "Gaussian_Noise"
+    ],
+    "class_distribution": {
+        "class_0": 230,
+        "class_1": 227,
+        "class_2": 206
+    }
+}

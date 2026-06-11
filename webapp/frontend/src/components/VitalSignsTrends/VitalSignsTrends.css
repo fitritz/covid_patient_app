@@ -1,0 +1,81 @@
+.vital-signs-trends-card {
+  background-color: var(--color-surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: var(--border-glass);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  margin-bottom: var(--space-lg);
+}
+
+.vital-signs-trends-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px; /* Fixed height for the chart */
+}
+
+.vital-signs-title {
+  font-family: var(--font-display);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.3));
+}
+
+/* Force Recharts Tooltip Styling */
+.recharts-default-tooltip {
+  background-color: rgba(18, 18, 18, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  padding: 10px !important;
+}
+
+.recharts-tooltip-item-list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.recharts-tooltip-item {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  font-size: 13px !important;
+}
+
+.recharts-tooltip-label {
+  color: #aaa !important;
+  margin-bottom: 5px !important;
+  font-weight: 600 !important;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 767px) {
+  .vital-signs-trends-card {
+    padding: var(--space-md);
+  }
+
+  .vital-signs-trends-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-md);
+  }
+
+  .chart-container {
+    height: 220px;
+    margin: 0 calc(-1 * var(--space-sm));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chart-container {
+    height: 260px;
+  }
+}

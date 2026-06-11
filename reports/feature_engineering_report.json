@@ -1,0 +1,141 @@
+{
+    "total_features": 64,
+    "feature_categories": {
+        "medical": 14,
+        "statistical": 9,
+        "ratio": 4,
+        "polynomial": 8,
+        "binary": 7,
+        "anomaly": 7,
+        "interaction": 6,
+        "aggregate": 6
+    },
+    "feature_list": [
+        "Temperature Data",
+        "ECG Data",
+        "Pressure Data",
+        "Temp_Fever",
+        "Temp_Hypothermia",
+        "Temp_Severe_Fever",
+        "Temp_Deviation_Normal",
+        "ECG_Abnormal",
+        "ECG_Critical",
+        "ECG_Very_Low",
+        "ECG_Severity_Score",
+        "Pressure_Low",
+        "Pressure_High",
+        "Pressure_Deviation",
+        "Pressure_Normal_Range",
+        "Multiple_Abnormalities",
+        "Critical_Vitals",
+        "Temperature Data_ZScore",
+        "ECG Data_ZScore",
+        "Pressure Data_ZScore",
+        "Temperature Data_Normalized",
+        "ECG Data_Normalized",
+        "Pressure Data_Normalized",
+        "Temperature Data_Percentile",
+        "ECG Data_Percentile",
+        "Pressure Data_Percentile",
+        "Temp_ECG_Ratio",
+        "ECG_Pressure_Ratio",
+        "Temp_Pressure_Ratio",
+        "Vital_Efficiency",
+        "Temp_Squared",
+        "ECG_Squared",
+        "Pressure_Squared",
+        "Temp_Cubed",
+        "ECG_Cubed",
+        "Temp_Sqrt",
+        "ECG_Sqrt",
+        "Pressure_Sqrt",
+        "ECG_Is_Zero",
+        "ECG_Is_NonZero",
+        "Temp_In_Normal_Range",
+        "ECG_In_Low_Range",
+        "ECG_In_High_Range",
+        "Temp_Extreme",
+        "ECG_Extreme",
+        "Temperature Data_Distance_From_Median",
+        "ECG Data_Distance_From_Median",
+        "Pressure Data_Distance_From_Median",
+        "Temperature Data_Is_Outlier",
+        "ECG Data_Is_Outlier",
+        "Pressure Data_Is_Outlier",
+        "Total_Anomaly_Score",
+        "Temp_ECG_Interaction",
+        "Temp_Pressure_Interaction",
+        "ECG_Pressure_Interaction",
+        "Three_Way_Interaction",
+        "Temp_Plus_ECG",
+        "All_Vitals_Sum",
+        "Vitals_Mean",
+        "Vitals_Std",
+        "Vitals_Min",
+        "Vitals_Max",
+        "Vitals_Range",
+        "Vitals_CV"
+    ],
+    "sample_statistics": {
+        "Temperature Data": {
+            "mean": 34.38182592387809,
+            "std": 5.037389207155533,
+            "min": 31.17947785,
+            "max": 48.63227696
+        },
+        "ECG Data": {
+            "mean": 9.627995610159747,
+            "std": 27.859482658324726,
+            "min": -3.98623931,
+            "max": 138.7399806
+        },
+        "Pressure Data": {
+            "mean": 76.91551263468207,
+            "std": 0.3923781864101626,
+            "min": 74.95715301,
+            "max": 78.02673844
+        },
+        "Temp_Fever": {
+            "mean": 0.17498686284813453,
+            "std": 0.3800557368717279,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "Temp_Hypothermia": {
+            "mean": 0.8176563321071991,
+            "std": 0.38622900321424414,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "Temp_Severe_Fever": {
+            "mean": 0.17498686284813453,
+            "std": 0.3800557368717279,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "Temp_Deviation_Normal": {
+            "mean": 5.45475756375197,
+            "std": 1.5696196097892166,
+            "min": 1.6025323799999995,
+            "max": 11.632276959999999
+        },
+        "ECG_Abnormal": {
+            "mean": 0.11035207566999475,
+            "std": 0.31341045215353897,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "ECG_Critical": {
+            "mean": 0.09353652128218602,
+            "std": 0.2912593663953549,
+            "min": 0.0,
+            "max": 1.0
+        },
+        "ECG_Very_Low": {
+            "mean": 0.860746190225959,
+            "std": 0.34630218778231475,
+            "min": 0.0,
+            "max": 1.0
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "model_name": "Gradient Boosting Classifier",
+  "accuracy": "86.70%",
+  "high_risk_recall": "94.55%",
+  "false_negatives": 3,
+  "total_high_risk": 55,
+  "features": [
+    "Age",
+    "SystolicBP",
+    "DiastolicBP",
+    "BS",
+    "BodyTemp",
+    "HeartRate"
+  ],
+  "classes": [
+    "high risk",
+    "low risk",
+    "mid risk"
+  ],
+  "training_samples": 975,
+  "test_samples": 203
+}

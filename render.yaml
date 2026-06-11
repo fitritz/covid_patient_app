@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: covid-patient-api
+    runtime: python
+    rootDir: webapp/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.4
+      - key: MONGO_URI
+        sync: false
+      - key: FRONTEND_URL
+        value: https://covid-patient-app.onrender.com
+
+  - type: web
+    name: covid-patient-app
+    runtime: static
+    buildCommand: cd webapp/frontend && npm ci && npm run build
+    staticPublishPath: webapp/frontend/build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://covid-patient-api.onrender.com

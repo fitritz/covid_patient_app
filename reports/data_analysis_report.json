@@ -1,0 +1,57 @@
+{
+    "total_records": 150,
+    "total_features": 6,
+    "columns": [
+        "Sl.No",
+        "Patient ID",
+        "Temperature Data",
+        "ECG Data",
+        "Pressure Data",
+        "Target"
+    ],
+    "duplicates": 0,
+    "unique_records": "150",
+    "duplicate_percentage": 0.0,
+    "features": {
+        "Temperature Data": {
+            "mean": 34.36,
+            "std": 5.055769513054122,
+            "min": 32.0,
+            "max": 48.0,
+            "range": 16.0
+        },
+        "ECG Data": {
+            "mean": 9.266666666666667,
+            "std": 27.574101910975592,
+            "min": 0.0,
+            "max": 138.0,
+            "range": 138.0
+        },
+        "Pressure Data": {
+            "mean": 76.91333333333333,
+            "std": 0.4167091700916584,
+            "min": 75.0,
+            "max": 78.0,
+            "range": 3.0
+        }
+    },
+    "target_distribution": {
+        "class_0": 59,
+        "class_1": 56,
+        "class_2": 35,
+        "imbalance_ratio": 1.6857142857142857
+    },
+    "correlation": {
+        "ECG Data": 0.1831686970025651,
+        "Temperature Data": 0.06252707493888778,
+        "Pressure Data": -0.208702373775675
+    },
+    "data_quality": {
+        "missing_values": 0,
+        "outliers": {
+            "Temperature Data": 31,
+            "ECG Data": 20,
+            "Pressure Data": 15
+        }
+    }
+}
